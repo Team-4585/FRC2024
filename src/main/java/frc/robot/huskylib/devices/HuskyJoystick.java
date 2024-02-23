@@ -97,6 +97,8 @@ public class HuskyJoystick extends RoboDevice {
   private int m_axisCount = DEFAULT_AXIS_COUNT;
   private AxisInfo[] m_axes;
 
+  private int m_povValue;
+
   public HuskyJoystick(int port) {
     super("HuskyJoystick" + port);
 
@@ -123,6 +125,8 @@ public class HuskyJoystick extends RoboDevice {
     for(int axisIndex = 0; axisIndex < m_axisCount; axisIndex++){
       m_axes[axisIndex].ReadValue();
     }
+
+    m_povValue = m_joystick.getPOV();
   }
 
   protected Boolean isButtonPushed(int checkButton){
@@ -139,6 +143,10 @@ public class HuskyJoystick extends RoboDevice {
 
   public int getButtonCount(){
     return m_buttonCount;
+  }
+
+  public int getPOV() {
+    return m_povValue;
   }
 
 

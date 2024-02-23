@@ -59,5 +59,7 @@ public final class WiringConnections {
   public static final int RIGHT_MASTER_CONTROLLER_ID = CAN_CHANNEL_2;
   public static final int RIGHT_SLAVE_CONTROLLER_ID = CAN_CHANNEL_3;
 
-
+  public static final int INTAKE_CONTROLLER_ID = CAN_CHANNEL_5;
+  public static final int SHOOTER_ANGLE_CONTROLLER_ID = CAN_CHANNEL_6;
+  public static final int SHOOTER_CONTROLLER_ID = CAN_CHANNEL_7;
 }

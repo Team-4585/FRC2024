@@ -23,10 +23,17 @@ public class FRC2024TeleopDecisionMaker {
     //                    "   S/S: " + m_TheJoystick.getSideToSideValue() + 
     //                    "   Rot: " + m_TheJoystick.getTwistValue());
 
-      m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue());
-      m_Chassis.setTargRotation(m_TheJoystick.getTwistValue() * Math.abs(m_TheJoystick.getTwistValue()));
+    
+      m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue() * Math.abs(m_TheJoystick.getForwardBackwardValue()));
+      m_Chassis.setTargRotation(m_TheJoystick.getTwistValue() * Math.abs(m_TheJoystick.getTwistValue()) * Math.abs(m_TheJoystick.getTwistValue()));
 
-
+      if (m_TheJoystick.getPOV() == 0) {
+        m_Intake.suck(1);
+      } else if (m_TheJoystick.getPOV() == 180) {
+        m_Intake.suck(-1);
+      } else {
+        m_Intake.suck(0);
+      }
   }
 
   public void setChassis(FRC2024Chassis TheChassis){
