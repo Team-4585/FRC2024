@@ -14,11 +14,11 @@ public class Intake extends RoboDevice{
   public Intake(){
     super("Intake Sub System");
 
-    m_intakeMotor = new CANSparkMax(WiringConnections.SHOOTER_CONTROLLER_ID, MotorType.kBrushless);
+    m_intakeMotor = new CANSparkMax(WiringConnections.INTAKE_CONTROLLER_ID, MotorType.kBrushless);
   }
 
   public void Initialize(){
-    m_intakeMotor = new CANSparkMax(WiringConnections.SHOOTER_CONTROLLER_ID, MotorType.kBrushless);
+    m_intakeMotor = new CANSparkMax(WiringConnections.INTAKE_CONTROLLER_ID, MotorType.kBrushless);
   }
 
   /**
