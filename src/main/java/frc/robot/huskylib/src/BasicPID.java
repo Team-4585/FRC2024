@@ -42,13 +42,13 @@ public class BasicPID extends RoboDevice{
     m_pidController.setFeedbackDevice(m_encoder);
 
     //Setting up PID values
-    kP = 0.1;
+    kP = 0.75;
     kI = 0;
     kD = 0;
     kIz = 0;
     kFF = 0;
-    kMaxOutput = 0.5;
-    kMinOutput = -0.5;
+    kMaxOutput = 0.75;
+    kMinOutput = -0.75;
     
     
     m_pidController.setP(kP);
