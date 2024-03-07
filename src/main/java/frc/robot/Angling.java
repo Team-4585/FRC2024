@@ -20,7 +20,7 @@ public class Angling extends RoboDevice{
   }
 
   public void move(double speed){
-    angle = angle - speed / 5;
+    angle = angle - speed / 10;
     m_angleMotor.setRotations(angle);
     System.out.println("Target: " + angle);
     System.out.println("Current: " + m_angleMotor.getPosition());
