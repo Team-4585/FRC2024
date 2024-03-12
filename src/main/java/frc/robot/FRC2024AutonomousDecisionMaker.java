@@ -15,7 +15,6 @@ public class FRC2024AutonomousDecisionMaker {
 
   private FRC2024Chassis m_Chassis;
   private Intake m_Intake;
-  private Angling m_Angling;
   private Shooter m_Shooter;
 
 
@@ -55,10 +54,6 @@ public class FRC2024AutonomousDecisionMaker {
 
   public void setIntakeSubSystem(Intake IntakeSys){
     m_Intake = IntakeSys;
-  }
-
-  public void setAnglingSubSystem(Angling AnglingSys){
-    m_Angling = AnglingSys;
   }
 
   public void setShooterSubSystem(Shooter ShooterSys){

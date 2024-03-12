@@ -25,7 +25,6 @@ public class Robot extends HuskyRobot {
 
   private FRC2024Chassis m_TheChassis = new FRC2024Chassis();
   private Intake m_Intake = new Intake();
-  private Angling m_Angling = new Angling();
   private Shooter m_Shooter = new Shooter();
 
 
@@ -41,15 +40,15 @@ public class Robot extends HuskyRobot {
 
     m_TeleopDecider.initialize();
     m_AutoDecider.initialize();
+    m_Intake.Initialize();
+    m_Shooter.Initialize();
+
     m_TeleopDecider.setChassis(m_TheChassis);
     m_AutoDecider.setChassis(m_TheChassis);
     m_TeleopDecider.setIntakeSubSystem(m_Intake);
     m_AutoDecider.setIntakeSubSystem(m_Intake);
-    m_TeleopDecider.setAnglingSubSystem(m_Angling);
-    m_AutoDecider.setAnglingSubSystem(m_Angling);
     m_TeleopDecider.setShooterSubSystem(m_Shooter);
     m_AutoDecider.setShooterSubSystem(m_Shooter);
-
   }
 
   /**

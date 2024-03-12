@@ -19,12 +19,6 @@ public class FRC2024TeleopDecisionMaker {
   }
 
   public void doDecisions(){
-
-    // System.out.println("-- F/B: " + m_TheJoystick.getForwardBackwardValue() + 
-    //                    "   S/S: " + m_TheJoystick.getSideToSideValue() + 
-    //                    "   Rot: " + m_TheJoystick.getTwistValue());
-
-    
       m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue() * Math.abs(m_TheJoystick.getForwardBackwardValue()));
       m_Chassis.setTargRotation(((m_TheJoystick.getTwistValue() / 3) * Math.abs(m_TheJoystick.getTwistValue()) * Math.abs(m_TheJoystick.getTwistValue())) / 2);
 
@@ -41,8 +35,6 @@ public class FRC2024TeleopDecisionMaker {
       } else {
         m_Shooter.shoot(0);
       }
-
-      //m_Angling.move(m_TheWeaponsJoystick.getForwardBackwardValue());
   }
 
   public void setChassis(FRC2024Chassis TheChassis){
@@ -53,13 +45,7 @@ public class FRC2024TeleopDecisionMaker {
     m_Intake = IntakeSys;
   }
 
-  public void setAnglingSubSystem(Angling AnglingSys){
-    //m_Angling = AnglingSys;
-  }
-
   public void setShooterSubSystem(Shooter ShooterSys){
     m_Shooter = ShooterSys;
   }
-
-
 }
