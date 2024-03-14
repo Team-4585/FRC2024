@@ -19,7 +19,7 @@ public class Shooter extends RoboDevice{
     m_shooterRightMotor = new CANSparkMax(WiringConnections.SHOOTER_RIGHT_CONTROLLER_ID, MotorType.kBrushless);
   }
 
-  public void shoot(double speed) {
+  public void set(double speed) {
     m_shooterLeftMotor.set(speed);
     m_shooterRightMotor.set(-speed);
   }

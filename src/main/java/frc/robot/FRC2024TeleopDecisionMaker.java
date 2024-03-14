@@ -31,10 +31,12 @@ public class FRC2024TeleopDecisionMaker {
       }
 
       if (m_TheWeaponsJoystick.triggerPushed()) {
-        m_Shooter.shoot(1);
+        m_Shooter.set(1);
       } else {
-        m_Shooter.shoot(0);
+        m_Shooter.set(0);
       }
+
+      System.out.println(m_Chassis.getLeftPosition());
   }
 
   public void setChassis(FRC2024Chassis TheChassis){

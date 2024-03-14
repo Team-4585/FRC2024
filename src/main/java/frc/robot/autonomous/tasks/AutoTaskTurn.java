@@ -1,16 +1,17 @@
-package frc.robot.autonomous;
+package frc.robot.autonomous.tasks;
 
 import frc.robot.FRC2024Chassis;
+import frc.robot.autonomous.AutonomousTaskBase;
 import frc.robot.FRC2024Chassis;
 import edu.wpi.first.wpilibj.Timer;
 
-public class AutoTaskDriveStraight extends AutonomousTaskBase{
+public class AutoTaskTurn extends AutonomousTaskBase{
     private FRC2024Chassis m_chassis;
     private Timer m_timer = new Timer();
     
-    private float forwardTime = 2.5f;
+    private float forwardTime = 1.0f;
 
-    public AutoTaskDriveStraight(){
+    public AutoTaskTurn(){
     }
 
     public void setChassis(FRC2024Chassis chassis){
@@ -20,7 +21,7 @@ public class AutoTaskDriveStraight extends AutonomousTaskBase{
     @Override
     public void TaskInitialize() {
         // TODO Auto-generated method stub
-        m_chassis.setTargForwardBack(0.25);;
+        m_chassis.setTargRotation(0.25);;
         m_timer.start();
     }
 
@@ -35,7 +36,7 @@ public class AutoTaskDriveStraight extends AutonomousTaskBase{
 
 
         if(m_timer.hasElapsed(forwardTime)){
-            m_chassis.setTargForwardBack(0.0);
+            m_chassis.setTargRotation(0.0);
             return true;
         } else{
             return false;

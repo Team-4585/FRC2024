@@ -1,4 +1,6 @@
-package frc.robot.autonomous;
+package frc.robot.autonomous.tasks;
+
+import frc.robot.autonomous.AutonomousTaskBase;
 
 // an autonomous class that does nothing and will never complete.
 // put this at the end of the list of tasks to do

@@ -60,6 +60,14 @@ public class FRC2024Chassis extends RoboDevice{
     return m_currentHeading;
   }
 
+  public double getLeftPosition() {
+    return m_driveTrain.getCurrentLeftPosition();
+  }
+
+  public double getRightPosition() {
+    return m_driveTrain.getCurrentRightPosition();
+  }
+
 
   @Override
   public void doActions() {

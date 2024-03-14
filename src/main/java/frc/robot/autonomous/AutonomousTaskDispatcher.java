@@ -21,7 +21,7 @@ public class AutonomousTaskDispatcher {
     }
 
     public void RunAutoTask(){
-        System.out.println("RunAutoTask");
+        //System.out.println("RunAutoTask");
         if(m_currentTask.CheckTask()){
             // Task completed. Move to the next one.
             m_currentTask = m_TaskItr.next();       // get the next task and bump the iterator
