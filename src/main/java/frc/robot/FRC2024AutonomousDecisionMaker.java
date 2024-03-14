@@ -40,6 +40,7 @@ public class FRC2024AutonomousDecisionMaker {
    // m_TaskList = List.of(new AutoTaskTickCount(25), new AutoTaskHalt());
     
    /**
+    * Wheeeeeeeeeee auto logic:
     * 1. Set shooter speed
       2. Wait 2s
       3. Set intake on
