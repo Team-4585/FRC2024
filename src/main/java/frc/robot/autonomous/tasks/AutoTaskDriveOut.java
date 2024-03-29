@@ -11,9 +11,9 @@ public class AutoTaskDriveOut extends AutonomousTaskBase{
     private ReallyBasicPID m_PID;
     
     private double initialPosition = 0.0;
-    private float targetRotations = -2.5f;
+    private float targetRotations = 3f;
     private double rotationsRemaining = targetRotations;
-    private double acceptableError = 0.12;
+    private double acceptableError = 0.15;
     private double maxSpeed = 0.75;
 
     public AutoTaskDriveOut(double kp, double ki, double kd, double dt){
@@ -37,7 +37,7 @@ public class AutoTaskDriveOut extends AutonomousTaskBase{
         double speed = Math.max(-maxSpeed, Math.min(maxSpeed, m_PID.calculatePID(targetRotations, targetRotations - rotationsRemaining)));
         m_chassis.setTargForwardBack(speed);
 
-        System.out.println(rotationsRemaining);
+        //System.out.println(rotationsRemaining);
 
         if(Math.abs(rotationsRemaining) <= acceptableError){
             m_chassis.setTargForwardBack(0.0);

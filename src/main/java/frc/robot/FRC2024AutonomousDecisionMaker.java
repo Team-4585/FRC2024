@@ -14,8 +14,8 @@ public class FRC2024AutonomousDecisionMaker {
   private Intake m_Intake;
   private Shooter m_Shooter;
 
-  private double chassisKp = 0.005;
-  private double chassisKi = 0.1;
+  private double chassisKp = 0.007;
+  private double chassisKi = 0.12;
   private double chassisKd = 0;
   private double chassisDt = 1;
 
@@ -73,6 +73,7 @@ public class FRC2024AutonomousDecisionMaker {
         autoDriveBack,
         autoSpoolShooter,
         autoShoot,
+        autoShutdownShooter,
         autoDriveOut,
         new AutoTaskHalt()
     );

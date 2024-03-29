@@ -13,6 +13,7 @@ public class AutoTaskShoot extends AutonomousTaskBase{
     private Timer m_timer;
 
     private double shootTime = 1; // Seconds
+    private double cooldownTime = 1; // Seconds
 
     public AutoTaskShoot(){
         m_timer = new Timer();
@@ -26,15 +27,18 @@ public class AutoTaskShoot extends AutonomousTaskBase{
     public void TaskInitialize() {
         // TODO Auto-generated method stub
         m_intake.suck(0.5);
+        m_timer.reset();
         m_timer.start();
     }
 
     @Override
     public boolean CheckTask() {
-        if(m_timer.hasElapsed(shootTime)){
-            m_intake.suck(0);
+        if(m_timer.hasElapsed(shootTime + cooldownTime)){
             return true;
-        } else{
+        } else if (m_timer.hasElapsed(shootTime)) {
+            m_intake.suck(0);
+            return false;
+        } else {
             return false;
         }
     }
