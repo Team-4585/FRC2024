@@ -21,8 +21,8 @@ public class FRC2024TeleopDecisionMaker {
   }
 
   public void doDecisions(){
-      m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue() * Math.abs(m_TheJoystick.getForwardBackwardValue()) - m_TheController.getLeftYValue() * Math.abs(m_TheController.getLeftYValue()));
-      m_Chassis.setTargRotation(((m_TheJoystick.getTwistValue() / 2) * Math.abs(m_TheJoystick.getTwistValue()) * Math.abs(m_TheJoystick.getTwistValue())) / 2 - m_TheController.getLeftXValue() * Math.abs(m_TheController.getLeftXValue()));
+      m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue() * Math.abs(m_TheJoystick.getForwardBackwardValue()));
+      m_Chassis.setTargRotation(((m_TheJoystick.getTwistValue() / 1) * Math.abs(m_TheJoystick.getTwistValue()) * Math.abs(m_TheJoystick.getTwistValue())) / 1);
 
       /*
       if (m_TheWeaponsJoystick.getPOV() == 0) {
@@ -40,10 +40,14 @@ public class FRC2024TeleopDecisionMaker {
       }
       */
 
-      m_Intake.suck(m_TheWeaponsController.getLeftYValue());
-      m_Shooter.set(m_TheWeaponsController.getRightTriggerValue());
+      m_Intake.suck(m_TheWeaponsController.getLeftYValue() / 5);
+      m_Shooter.set(m_TheWeaponsController.getRightTriggerValue() * 0.9 - m_TheWeaponsController.getLeftTriggerValue() * 0.45);
 
-      System.out.println(m_Chassis.getLeftPosition());
+      if (m_TheWeaponsController.yButtonPushed()) {
+        m_Intake.suck(1);
+      }
+
+      //System.out.println(m_Chassis.getLeftPosition());
   }
 
   public void setChassis(FRC2024Chassis TheChassis){

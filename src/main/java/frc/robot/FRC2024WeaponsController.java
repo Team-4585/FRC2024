@@ -163,4 +163,19 @@ public class FRC2024WeaponsController extends HuskyXbox{
   public Boolean triggerReleaseEvent(){
     return buttonReleaseEvent(TRIGGER_BUTTON);
   }
+
+
+
+  public Boolean yButtonPushed(){
+    return isButtonPushed(3);
+  }
+
+  public Boolean yButtonPressEvent(){
+    return buttonPressEvent(3);
+  }
+    
+  public Boolean yButtonReleaseEvent(){
+    return buttonReleaseEvent(3);
+  }
+  
 }

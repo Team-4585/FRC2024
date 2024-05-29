@@ -11,7 +11,7 @@ public class AutoTaskSpoolShooter extends AutonomousTaskBase{
     private Shooter m_shooter;
     private Timer m_timer;
 
-    private double spoolTime = 1; // Seconds
+    private double spoolTime = 1.5; // Seconds
 
     public AutoTaskSpoolShooter(){
         m_timer = new Timer();
@@ -24,7 +24,7 @@ public class AutoTaskSpoolShooter extends AutonomousTaskBase{
     @Override
     public void TaskInitialize() {
         // TODO Auto-generated method stub
-        m_shooter.set(0.75);
+        m_shooter.set(0.95);
         m_timer.reset();
         m_timer.start();
     }
