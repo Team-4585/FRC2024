@@ -18,10 +18,10 @@ public class WestCoastDriveTrain extends RoboDevice{
 
   private final double m_GEAR_RATIO = 10.7;
 
-  private CANSparkMax m_leftMasterController;
-  private CANSparkMax m_leftSlaveController;
-  private CANSparkMax m_rightMasterController;
-  private CANSparkMax m_rightSlaveController;
+  private VictorSPX m_leftMasterController;
+  private VictorSPX m_leftSlaveController;
+  private VictorSPX m_rightMasterController;
+  private VictorSPX m_rightSlaveController;
 
   private RelativeEncoder m_leftEncoder;
   private RelativeEncoder m_rightEncoder;
@@ -30,13 +30,13 @@ public class WestCoastDriveTrain extends RoboDevice{
   public WestCoastDriveTrain(int leftMasterID, int leftSlaveID, int rightMasterID, int rightSlaveID){
     super("WestCoastDriveTrain");
 
-    m_leftMasterController = new CANSparkMax(leftMasterID, MotorType.kBrushless);
-    m_leftSlaveController = new CANSparkMax(leftSlaveID, MotorType.kBrushless);
-    m_rightMasterController = new CANSparkMax(rightMasterID, MotorType.kBrushless);
-    m_rightSlaveController = new CANSparkMax(rightSlaveID, MotorType.kBrushless);
+    m_leftMasterController = new VictorSPX(leftMasterID);
+    m_leftSlaveController = new VictorSPX(leftSlaveID);
+    m_rightMasterController = new VictorSPX(rightMasterID);
+    m_rightSlaveController = new VictorSPX(rightSlaveID);
 
-    m_leftEncoder = m_leftMasterController.getEncoder();
-    m_rightEncoder = m_rightMasterController.getEncoder();
+    //m_leftEncoder = m_leftMasterController.getEncoder();
+    //m_rightEncoder = m_rightMasterController.getEncoder();
 
     m_leftSlaveController.follow(m_leftMasterController);
     m_rightSlaveController.follow(m_rightMasterController);
@@ -81,16 +81,16 @@ public class WestCoastDriveTrain extends RoboDevice{
   public void doGatherInfo() {
     super.doGatherInfo();
 
-    m_currentLeftRotations = m_leftEncoder.getPosition() / m_GEAR_RATIO;
-    m_currentRightRotations = m_rightEncoder.getPosition() / m_GEAR_RATIO;
+    //m_currentLeftRotations = m_leftEncoder.getPosition() / m_GEAR_RATIO;
+    //m_currentRightRotations = m_rightEncoder.getPosition() / m_GEAR_RATIO;
   }
 
   @Override
   public void doActions() {
     super.doActions();
 
-    m_leftMasterController.set(m_targSpeed + m_targRotationSpeed);
-    m_rightMasterController.set(m_targRotationSpeed - m_targSpeed);
+    m_leftMasterController.set(ControlMode.PercentOutput, m_targSpeed + m_targRotationSpeed);
+    m_rightMasterController.set(ControlMode.PercentOutput, m_targRotationSpeed - m_targSpeed);
 
     // if(m_currentSpeed < m_targSpeed){
     //   m_currentSpeed += 0.01;
