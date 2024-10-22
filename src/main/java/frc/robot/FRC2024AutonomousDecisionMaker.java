@@ -1,13 +1,9 @@
 package frc.robot;
 
 import java.util.List;
+import frc.robot.*;
 
-import frc.robot.autonomous.AutoTaskDriveStraight;
-import frc.robot.autonomous.AutoTaskHalt;
-import frc.robot.autonomous.AutoTaskStartSequence;
-import frc.robot.autonomous.AutoTaskTurn;
-import frc.robot.autonomous.AutonomousTaskBase;
-import frc.robot.autonomous.AutonomousTaskDispatcher;
+import frc.robot.autonomous.*;
 
 public class FRC2024AutonomousDecisionMaker {
   private List<AutonomousTaskBase> m_TaskList;
@@ -20,17 +16,20 @@ public class FRC2024AutonomousDecisionMaker {
 
 
   private AutoTaskStartSequence autoStartSeq = new AutoTaskStartSequence();
-  private AutoTaskDriveStraight autoDriveStraight = new AutoTaskDriveStraight();
-  private AutoTaskTurn autoTurn = new AutoTaskTurn();
+  private AutoTaskShoot autoShoot = new AutoTaskShoot();
+  private AutoTaskLoadFire autoLoadFire = new AutoTaskLoadFire();
 
-  FRC2024AutonomousDecisionMaker(){
+  //private AutoTaskDriveStraight autoDriveStraight = new AutoTaskDriveStraight();
+  //private AutoTaskTurn autoTurn = new AutoTaskTurn();
+
+  public FRC2024AutonomousDecisionMaker(){
    // m_TaskList = List.of(new AutoTaskTickCount(25), new AutoTaskHalt());
     
    System.out.println("Initializing list");
    m_TaskList = List.of(
         autoStartSeq,
-        autoDriveStraight,
-        autoTurn,
+        autoShoot,
+        autoLoadFire,
         new AutoTaskHalt()
     );
 
@@ -49,12 +48,13 @@ public class FRC2024AutonomousDecisionMaker {
 
   public void setChassis(FRC2024Chassis TheChassis){
     m_Chassis = TheChassis;
-    autoDriveStraight.setChassis(TheChassis);
-    autoTurn.setChassis(TheChassis);
+    //autoDriveStraight.setChassis(TheChassis);
+    //autoTurn.setChassis(TheChassis);
   }
 
   public void setIntakeSubSystem(Intake IntakeSys){
     m_Intake = IntakeSys;
+    autoLoadFire.setIntake(m_Intake);
   }
 
   public void setAnglingSubSystem(Angling AnglingSys){
@@ -63,6 +63,8 @@ public class FRC2024AutonomousDecisionMaker {
 
   public void setShooterSubSystem(Shooter ShooterSys){
     m_Shooter = ShooterSys;
+    autoShoot.setShooter(m_Shooter);
+    autoLoadFire.setShooter(m_Shooter);
   }
 
 

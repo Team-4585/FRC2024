@@ -29,6 +29,28 @@ public class WestCoastDriveTrain extends RoboDevice{
 
     m_leftSlaveController.follow(m_leftMasterController);
     m_rightSlaveController.follow(m_rightMasterController);
+
+    
+
+    // m_leftMasterController.enableSoftLimit(CANSparkMax.SoftLimitDirection.kForward, true);
+    // m_rightMasterController.enableSoftLimit(CANSparkMax.SoftLimitDirection.kForward, true);
+    // m_leftMasterController.enableSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, true);
+    // m_rightMasterController.enableSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, true);
+    
+    // m_leftMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, 55);
+    // m_rightMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, 55);
+    // m_leftMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward, 55);
+    // m_rightMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward, 55);
+    // m_leftMasterController.setOpenLoopRampRate(0.8);
+    // m_rightMasterController.setOpenLoopRampRate(0.8);
+    // // m_leftMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward, 10000);
+    // // m_rightMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward, 10000);
+    
+    // // m_leftMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, 10000);
+    // // m_rightMasterController.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, 10000);
+
+    // m_leftMasterController.burnFlash();
+    // m_rightMasterController.burnFlash();
   }
 
   public void Initialize(){
