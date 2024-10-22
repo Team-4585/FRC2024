@@ -1,8 +1,13 @@
 package frc.robot;
 
+import java.io.IOException;
+
+import frc.robot.huskylib.src.*;
+
 public class FRC2024TeleopDecisionMaker {
   private FRC2024Joystick m_TheJoystick = new FRC2024Joystick();
   private FRC2024WeaponsJoystick m_TheWeaponsJoystick = new FRC2024WeaponsJoystick();
+  private HuskyHandTracker m_TheTracker;// = new HuskyHandTracker();
 
   private FRC2024Chassis m_Chassis;
   private Intake m_Intake;
@@ -11,11 +16,12 @@ public class FRC2024TeleopDecisionMaker {
 
 
 
-  FRC2024TeleopDecisionMaker(){
-
+  FRC2024TeleopDecisionMaker() {
+    m_TheTracker = new HuskyHandTracker();
   }
 
-  public void initialize(){
+  public void initialize() {
+    m_TheTracker = new HuskyHandTracker();
   }
 
   public void doDecisions(){
@@ -24,9 +30,11 @@ public class FRC2024TeleopDecisionMaker {
     //                    "   S/S: " + m_TheJoystick.getSideToSideValue() + 
     //                    "   Rot: " + m_TheJoystick.getTwistValue());
 
+    m_Chassis.setTargForwardBack(m_TheTracker.getPitch());
+    m_Chassis.setTargRotation(m_TheTracker.getRoll());
     
-      m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue() * Math.abs(m_TheJoystick.getForwardBackwardValue()));
-      m_Chassis.setTargRotation(((m_TheJoystick.getTwistValue() / 3) * Math.abs(m_TheJoystick.getTwistValue()) * Math.abs(m_TheJoystick.getTwistValue())) / 2);
+      //m_Chassis.setTargForwardBack(m_TheJoystick.getForwardBackwardValue() * Math.abs(m_TheJoystick.getForwardBackwardValue()));
+      //m_Chassis.setTargRotation(((m_TheJoystick.getTwistValue() / 3) * Math.abs(m_TheJoystick.getTwistValue()) * Math.abs(m_TheJoystick.getTwistValue())) / 2);
 
       if (m_TheWeaponsJoystick.getPOV() == 0) {
         m_Intake.suck(1);
