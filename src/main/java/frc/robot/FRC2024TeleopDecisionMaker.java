@@ -39,7 +39,7 @@ public class FRC2024TeleopDecisionMaker {
         m_Shooter.set(0);
       }
       */
-
+      System.out.println(m_TheWeaponsController.getRightTriggerValue());
       m_Intake.suck(m_TheWeaponsController.getLeftYValue() / 5);
       m_Shooter.set(m_TheWeaponsController.getRightTriggerValue() * 0.9 - m_TheWeaponsController.getLeftTriggerValue() * 0.45);
 
